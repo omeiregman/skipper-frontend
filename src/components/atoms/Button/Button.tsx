@@ -11,7 +11,6 @@ interface ButtonProps {
 export const Button = (props: ButtonProps) => {
   const { children, message, exampleAction } = props
   const classes = styles()
-  console.log(message)
   return (
     <button css={classes.button} onClick={() => exampleAction(message)}>
       {children}
