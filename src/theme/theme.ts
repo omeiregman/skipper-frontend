@@ -1,16 +1,51 @@
 import * as utils from './utils'
+import { Theme } from './interface'
 
-const primary = {
-  500: '#282c34',
+const blue = {
+  500: '#109CF1',
+  400: '#334D6E',
 }
 
-const secondary = {
+const yellow = {
   500: '#61dafb',
 }
 
+const red = {
+  500: '#F7685B',
+}
+
+const green = {
+  500: '#2ED47A',
+}
+
+const purple = {
+  500: '#885AF8',
+}
+
+const grey = {
+  500: '#707683',
+  400: '#90A0B7',
+  300: '#C2CFE0',
+}
+
+const light = {
+  500: '#FFFFFF',
+}
+
+const dark = {
+  500: '#000000',
+  400: '#323C47',
+}
+
 const colors = {
-  primary,
-  secondary,
+  blue,
+  yellow,
+  red,
+  green,
+  purple,
+  grey,
+  dark,
+  light,
 }
 
 const spacings = {}
@@ -19,7 +54,7 @@ const fonts = {
   primary: 'SourceSansPro',
 }
 
-export const theme = {
+export const theme: Theme = {
   colors,
   spacings,
   fonts,

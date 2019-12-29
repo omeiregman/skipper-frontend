@@ -1,25 +1,26 @@
+/** @jsx jsx */
 import React from 'react'
-import { css } from '@emotion/core'
+import { css, jsx } from '@emotion/core'
+import { theme, ThemeProps } from 'theme'
 
 interface ButtonProps {
   children: React.ReactNode
-  message: string
   onClick?: (message?: string) => void
-  exampleAction: (message: string) => void
+  styleType: string
 }
 
 export const Button = (props: ButtonProps) => {
-  const { children, message, exampleAction } = props
-  const classes = styles()
-  return (
-    <button css={classes.button} onClick={() => exampleAction(message)}>
-      {children}
-    </button>
-  )
+  const { children, styleType } = props
+  const classes = styles({ theme, ...props })
+  return <button css={classes.button}>{children}</button>
 }
 
-const styles = () => ({
+const styles = (props: ThemeProps) => ({
   button: css`
     border: none;
+    background-color: ${theme.getColor('blue', 500)(props)};
+    color: ${theme.getColor('light', 500)(props)};
+    padding: 10px 20px;
+    cursor: pointer;
   `,
 })

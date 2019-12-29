@@ -1,5 +1,6 @@
 import { configure, addDecorator } from '@storybook/react'
 import { withOptions } from '@storybook/addon-options'
+import { withKnobs } from '@storybook/addon-knobs'
 import { withThemesProvider } from 'storybook-addon-emotion-theme'
 import { theme } from '../src/theme'
 import './styles.scss'
@@ -86,6 +87,7 @@ const req = require.context('../src', true, /.stories.tsx?$/)
 const themes = [theme]
 
 addDecorator(withThemesProvider(themes))
+addDecorator(withKnobs)
 
 function loadStories() {
   req.keys().forEach(filename => req(filename))
