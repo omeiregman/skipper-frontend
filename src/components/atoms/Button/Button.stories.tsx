@@ -4,7 +4,7 @@ import { select, text } from '@storybook/addon-knobs'
 
 import { Button } from './Button'
 
-const styleTypes = {
+const buttonTypes = {
   Primary: 'primary',
   Secondary: 'secondary',
   Tertiary: 'tertiary',
@@ -13,7 +13,7 @@ const styleTypes = {
 storiesOf('Button', module).add('Button', () => (
   <div>
     <Button
-      styleType={select('Style', styleTypes, 'primary')}
+      buttonType={select('Style', buttonTypes, 'primary')}
       onClick={() => {}}>
       {text('Text', 'Button')}
     </Button>

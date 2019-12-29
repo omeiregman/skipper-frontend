@@ -2,25 +2,69 @@
 import React from 'react'
 import { css, jsx } from '@emotion/core'
 import { theme, ThemeProps } from 'theme'
+import { colorByProp } from 'utils'
 
 interface ButtonProps {
   children: React.ReactNode
-  onClick?: (message?: string) => void
-  styleType: string
+  onClick?: () => void
+  buttonType: string
 }
 
 export const Button = (props: ButtonProps) => {
-  const { children, styleType } = props
+  const { children, buttonType } = props
   const classes = styles({ theme, ...props })
   return <button css={classes.button}>{children}</button>
 }
 
-const styles = (props: ThemeProps) => ({
+const styles = (props: ThemeProps & ButtonProps) => ({
   button: css`
+    height: 40px;
+    width: 180px;
+    font-size: 16px;
     border: none;
-    background-color: ${theme.getColor('blue', 500)(props)};
-    color: ${theme.getColor('light', 500)(props)};
-    padding: 10px 20px;
+    border-radius: 7px;
+    padding: 10px 25px;
     cursor: pointer;
+    border: ${props.buttonType == 'secondary'
+      ? `1px solid ${theme.getColor('blue', 500)(props)}`
+      : ''};
+    background-color: ${colorByProp(
+      'buttonType',
+      {
+        primary: theme.getColor('blue', 500)(props),
+        secondary: theme.getColor('light', 500)(props),
+        tertiary: theme.getColor('light', 500)(props),
+      },
+      theme.getColor('blue', 500)
+    )(props)};
+    color: ${colorByProp(
+      'buttonType',
+      {
+        primary: theme.getColor('light', 500)(props),
+        secondary: theme.getColor('blue', 500)(props),
+        tertiary: theme.getColor('blue', 500)(props),
+      },
+      theme.getColor('blue', 500)
+    )(props)};
+    &:hover {
+      background-color: ${colorByProp(
+        'buttonType',
+        {
+          primary: theme.getColor('blue', 400)(props),
+          secondary: theme.getColor('light', 500)(props),
+          tertiary: theme.getColor('light', 500)(props),
+        },
+        theme.getColor('blue', 500)
+      )(props)};
+      color: ${colorByProp(
+        'buttonType',
+        {
+          primary: theme.getColor('light', 500)(props),
+          secondary: theme.getColor('blue', 400)(props),
+          tertiary: theme.getColor('blue', 400)(props),
+        },
+        theme.getColor('blue', 500)
+      )(props)};
+    }
   `,
 })

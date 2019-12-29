@@ -3,7 +3,8 @@ import { Theme } from './interface'
 
 const blue = {
   500: '#109CF1',
-  400: '#334D6E',
+  400: '#34AFF9',
+  300: '#334D6E',
 }
 
 const yellow = {
