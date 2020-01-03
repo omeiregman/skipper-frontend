@@ -10,7 +10,7 @@ const buttonTypes = {
   Tertiary: 'tertiary',
 }
 
-storiesOf('Button', module).add('Button', () => (
+storiesOf('Atoms/Button', module).add('Button', () => (
   <div>
     <Button
       buttonType={select('Style', buttonTypes, 'primary')}
