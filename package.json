@@ -20,7 +20,7 @@
     "emotion-theming": "10.0.19",
     "formik": "2.0.4",
     "lodash": "4.17.15",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-redux": "^7.1.3",
